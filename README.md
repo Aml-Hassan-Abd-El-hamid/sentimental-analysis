@@ -21,10 +21,14 @@ The whole issue with this problem is the fact that each word has a single repres
 There were multiple types of datasets that I found during my hunt for a dataset and I like to mention some of them right here for future use
 Dataset Link | Desc | size | lang
 --- | --- | --- | ---
-https://www.kaggle.com/datasets/abhi8923shriv/sentiment-analysis-dataset | That's an automatically created dataset, it's assumed by its creators that any tweet with positive emoticons, like :), were positive, and tweets with negative emoticons, like :(, were negative. The dataset contains 2 emotions -even though the kaggle data card said 3-, negative, and positive<br> there are 799,996 negative samples and 248,576 positive samples <br> I'm not a big fan of that dataset given the fact that's not checked by Humen | 1,048,572 samples | eng
+https://www.kaggle.com/datasets/mksaad/arabic-sentiment-twitter-corpus | That's an automatically created dataset, it's assumed by its creators that any tweet with positive emoticons, like :), were positive, and tweets with negative emoticons, like :(, were negative. The dataset contains 2 emotions, negative, and positive<br> it's a balanced dataset with the training and the testing already separated <br> I'm not a big fan of that dataset given the fact that it's not checked by Humen | 56K samples | ara
 https://www.kaggle.com/datasets/attiabendjedou/algerian-arabic-sentiment-analysis-dataset/data | very interesting dataset given its in a dialect that I've never worked with before<br> It contains 979 negative samples and 521 positive samples<br> there's no info about the source in the dataset card | 1,500 samples | ara
-https://www.kaggle.com/datasets/hamzazaki/arabic-text-paired-with-sentiment-labels | That dataset is very neat, it's simple Arabic sentences with its emotion, the only issue is it's very small | 175 samples | ara
+https://www.kaggle.com/datasets/hamzazaki/arabic-text-paired-with-sentiment-labels | That dataset is very neat, it's simple Arabic sentences with its emotion, the only issue is that it's very small | 175 samples | ara
 https://www.kaggle.com/datasets/abedkhooli/arabic-100k-reviews | The dataset is promising but a lot of samples seems to have a mislabelled emotion, eg: those samples "وهذا ما سيحدث معنا", "عمان . كل شي. لا يوجد", are labelled positive | 100K samples | ara
+ 
+I decided to go with the Algerian dataset given that it's an interesting and new dialect to me and also a sort of suitable size.
 
+## Modelling
+ 
 ## Useful references:
 - https://medium.com/swlh/differences-between-word2vec-and-bert-c08a3326b5d1
