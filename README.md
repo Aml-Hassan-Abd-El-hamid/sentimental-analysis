@@ -32,8 +32,7 @@ We focus on 2 features from that dataset which are: `Tweet_text`, `Sentiment_lab
 
 I excluded any sample that has a `Sentiment_label_confidence` less than 100%, and that filtered the dataset so it became only 10,847 samples, after that filtration, the samples labelled `mixed` were very rare, so I dropped them and focused on the rest of the classes, so the new no.of samples became **10,712**.
 
-<img src="https://github.com/user-attachments/assets/f946d1d7-dd76-401c-bb62-b5d64e28ef84" width="400" height="400" >
-
+<img src="https://github.com/user-attachments/assets/f946d1d7-dd76-401c-bb62-b5d64e28ef84" width="400" height="400" ><br>
 I then did some primary cleaning of the text: 
 - Removed hashtags sign and user mentions
 - Removed punctuations
@@ -44,14 +43,19 @@ I then did some primary cleaning of the text:
 
 I tried fine-tuning different models and compared thier performance, I used Kaggle's GPU P100
 
-I wanted to use [CAMeLBERT](https://huggingface.co/CAMeL-Lab/bert-base-arabic-camelbert-mix-sentiment) since it's very famous but the model was trained using the **ArSAS** dataset which is the same dataset that I'm using over here, so I thought using it wouldn't be fair!
+I wanted to use [CAMeLBERT-sentiment](https://huggingface.co/CAMeL-Lab/bert-base-arabic-camelbert-mix-sentiment) since it's very famous but the model was trained using the **ArSAS** dataset which is the same dataset that I'm using over here, so I thought using it wouldn't be fair!
 
 Model Link | no.of epochs | learning_rate | batch_size | model size | pos accuracy | negative accuracy | neutral accuracy | total accuracy
 --- | --- | --- | --- | --- | --- | --- | --- | ---
 https://huggingface.co/aubmindlab/bert-base-arabertv2 | 5 | 2e-5 | 16 | 543 MB | 86.93% | 92.77% | 95.13% | 92.53%
 https://huggingface.co/CAMeL-Lab/bert-base-arabic-camelbert-mix | 5 | 2e-5 | 16 | 439 MB | 90.41% | 95.11% | 95.04% | 94.12%
 
-Given the fact that I saw a pattern of under performing in the **positive** class which is half the size of the other classes, I decided to try to upsample  that class one time then dowensample the other classes to see that move's effect on performance.
+Given the fact that I saw a pattern of under performing in the **positive** class which is half the size of the other classes, I decided to try to upsample  that class one time then dowensample the other classes to see that move's effect on performance, I decide to do that using the `CAMeLBERT` model since it performed better before.
+
+Resampling tech | no.of epochs | learning_rate | batch_size | pos accuracy | negative accuracy | neutral accuracy | total accuracy
+--- | --- | --- | --- | --- | --- | --- | --- 
+Upsample the positive class | 5 | 2e-5 | 16 | 89.14% | 94.66% | 95.15% | 93.75%
+Undersample the negative and neutral classes | 5 | 2e-5 | 16 | 89.67% | 94.17% | 95.23% | 93.65%
  
 ## Useful references:
 - https://medium.com/swlh/differences-between-word2vec-and-bert-c08a3326b5d1
