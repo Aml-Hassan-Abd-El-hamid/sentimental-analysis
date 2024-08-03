@@ -18,6 +18,9 @@ in sentimental analysis .and the contextual problems such as .
 The whole issue with this problem is the fact that each word has a single representation that doesn't pay **attention** to its neighbourhood model, so the solution can be to use a model that produces embeddings aware of the word's context, the **BERT** family can be a very good solution for that problem.  
 
 ## Dataset
+
+I was asked by Cyshield to answer the following question: **What was the biggest challenge you faced when carrying out this project?** and to answer that I'd say that picking a clean data for this task was really tough, lots of puplic and famous dataset have mislabbeled sample and to figure such a thing you have to be looking with your naked eyes into the dataset which I found to be time consuming and irritating. 
+
 There were multiple types of datasets that I found during my hunt for a dataset and I like to mention some of them right here for future use
 Dataset Link | Desc | size | lang
 --- | --- | --- | ---
@@ -56,6 +59,8 @@ Resampling tech | no.of epochs | learning_rate | batch_size | pos accuracy | neg
 --- | --- | --- | --- | --- | --- | --- | --- 
 Upsample the positive class | 5 | 2e-5 | 16 | 89.14% | 94.66% | 95.15% | 93.75%
 Undersample the negative and neutral classes | 5 | 2e-5 | 16 | 89.67% | 94.17% | 95.23% | 93.65%
- 
+
+I was asked by Cyshield to answer this question **What do you think you have learned from the project?** and my answer is that sometimes re-sampling can make the imblance issue even wors! I had a better model before trying over and under sampling!
+
 ## Useful references:
 - https://medium.com/swlh/differences-between-word2vec-and-bert-c08a3326b5d1
