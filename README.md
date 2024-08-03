@@ -44,9 +44,14 @@ I then did some primary cleaning of the text:
 
 I tried fine-tuning different models and compared thier performance, I used Kaggle's GPU P100
 
+I wanted to use [CAMeLBERT](https://huggingface.co/CAMeL-Lab/bert-base-arabic-camelbert-mix-sentiment) since it's very famous but the model was trained using the **ArSAS** dataset which is the same dataset that I'm using over here, so I thought using it wouldn't be fair!
+
 Model Link | no.of epochs | learning_rate | batch_size | model size | pos accuracy | negative accuracy | neutral accuracy | total accuracy
 --- | --- | --- | --- | --- | --- | --- | --- | ---
 https://huggingface.co/aubmindlab/bert-base-arabertv2 | 5 | 2e-5 | 16 | 543 MB | 86.93% | 92.77% | 95.13% | 92.53%
+https://huggingface.co/CAMeL-Lab/bert-base-arabic-camelbert-mix | 5 | 2e-5 | 16 | 439 MB | 90.41% | 95.11% | 95.04% | 94.12%
+
+Given the fact that I saw a pattern of under performing in the **positive** class which is half the size of the other classes, I decided to try to upsample  that class one time then dowensample the other classes to see that move's effect on performance.
  
 ## Useful references:
 - https://medium.com/swlh/differences-between-word2vec-and-bert-c08a3326b5d1
